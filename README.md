@@ -1,6 +1,12 @@
 # fetch
 fetch receipt predictor app
 
+Files included in this repository:
+  - Fetch(Lin_Reg).ipynb: this is the google colab notebook where I created the linear regression algorithm using Tensorflow which makes the predictions for the monthly receipt totals in 2022
+  - app.py: This is the python file where I created the tkinter app to deploy the linear regression model
+  - data_daily.csv: is the original csv data file for the project
+  - docker image: is just a file that contains the docker pull command you can use to pull the image from GitHub
+
 This is a simple tkinter app that allows you to upload the csv file data_daily.csv it will then run a linear regression algorithm on the data and return the predicted monthly receipt totals for 2022 and display a simple matplotlib plot of the results.
 
 In order to be able to show the GUI of the app it does require the use of an Xserver and the process is slightly different whether you are on Mac or Windows but below are directions for whichever system you are using.
