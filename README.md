@@ -30,4 +30,4 @@ Once the window pops up at the top you will see Upload CSV file: and underneath 
 
 Once you have selected the file, you can then click the button that says "Make Predictions for 2022"
 
-This will take a moment to run but then it will populate window below with the predicted monthly totals for each month of 2022 and below this it will generate a simple barplot of the totals for each month.
+This will take a moment to run but then it will populate the window below with the predicted monthly totals for each month of 2022 and below this it will generate a simple barplot of the totals for each month.
