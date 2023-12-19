@@ -13,7 +13,7 @@ Once you have this downloaded you can launch it and it will ask you some display
   - choose Multiple windows, then click next
   - choose Start no client, then click next
   - Then on the Extra settings page make sure to check the box for Disable access control as this will allow the Docker container to interact with the Xserver and then click next and finish.
-  - 
+
 Now with the Xserver setup make sure you have Docker open and then you can go into your command prompt and run the following: docker pull ghcr.io/jwyatt09/fetch:receipt_predictor
 
 This will pull the docker image from GitHub
