@@ -1,4 +1,4 @@
-# fetch
+# Fetch
 fetch receipt predictor app
 
 Files included in this repository:
