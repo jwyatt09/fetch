@@ -42,7 +42,7 @@ This will take a moment to run but then it will populate the window below with t
 
 For Mac I used an Xserver called Xquartz which can be downloaded here https://www.xquartz.org/
 
-Once you have this downloaded you can launch Xquartz it will bring up a terminal window but you can close out of this terminal window we do not need to do anything with it directly we just need to make sure Xquartz is running in the background.
+Once you have this downloaded, you can launch Xquartz. It will bring up a terminal window but you can close out of this terminal window we do not need to do anything with it directly we just need to make sure Xquartz is running in the background.
 
 Now make sure you have Docker running then open up a terminal window and run the following: docker pull ghcr.io/jwyatt09/fetch:receipt_predictor
 
