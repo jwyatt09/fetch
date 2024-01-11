@@ -35,7 +35,7 @@ class LinearRegressionApp:
         self.file_path = None
 
     def create_text_widget(self):
-        self.result_text = tk.Text(self.root, background='white', height=15, width=35)
+        self.result_text = tk.Text(self.root, background='white', foreground='black', height=15, width=35)
         self.result_text.pack(pady=5)
 
     def upload_csv(self):
@@ -48,6 +48,9 @@ class LinearRegressionApp:
             print("Please upload a CSV file first.")
             return
 
+        # Set random seed
+        np.random.seed(6)
+        tf.random.set_seed(6)
     
         df = pd.read_csv(self.file_path)
 
@@ -57,7 +60,7 @@ class LinearRegressionApp:
         receipts_mean = daily_receipts.mean()
         receipts_std = daily_receipts.std()
 
-        daily_receipts = (daily_receipts - receipts_mean) / receipts_std
+        receipts_scaled = (daily_receipts - receipts_mean) / receipts_std
 
         # Day indices and scaling
         days = np.arange(1, 366, dtype=np.float32)
@@ -65,19 +68,19 @@ class LinearRegressionApp:
         days_mean = days.mean()
         days_std = days.std()
 
-        days = (days - days_mean) / days_std
+        days_scaled = (days - days_mean) / days_std
 
         # Model parameters
         learning_rate = 0.01
-        epochs = 1000
+        epochs = 200
 
         # Model variables
         W_day = tf.Variable(np.random.randn(), name="weight_day")
         b = tf.Variable(np.random.randn(), name="bias")
 
         # Model
-        def linear_regression(day):
-            return tf.add(tf.multiply(day, W_day), b)
+        def linear_regression(receipts):
+            return tf.add(tf.multiply(receipts, W_day), b)
 
         # Loss function (mean squared error)
         def mean_squared_error(y_pred, y_true):
@@ -89,17 +92,20 @@ class LinearRegressionApp:
         # Training
         for epoch in range(epochs):
             with tf.GradientTape() as tape:
-                predictions = linear_regression(days)
-                loss = mean_squared_error(predictions, daily_receipts)
+                predictions = linear_regression(receipts_scaled)
+                loss = mean_squared_error(predictions, receipts_scaled)
 
             gradients = tape.gradient(loss, [W_day, b])
             optimizer.apply_gradients(zip(gradients, [W_day, b]))
 
         # Make predictions
-        predictions = linear_regression(days)
+        predictions = linear_regression(receipts_scaled)
 
         # Denormalize predictions
         predictions = predictions * receipts_std + receipts_mean
+
+        # Change tensor object to numpy 1D array 
+        predictions = predictions.numpy().flatten()
 
         # Create a DataFrame with the dates for 2022 as the index
         date_index = pd.date_range(start='2022-01-01', end='2022-12-31')
