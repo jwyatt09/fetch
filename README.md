@@ -20,13 +20,13 @@ Once you have this downloaded you can launch it and it will ask you some display
   - choose Start no client, then click next
   - Then on the Extra settings page make sure to check the box for Disable access control as this will allow the Docker container to interact with the Xserver and then click next and finish.
 
-Now with the Xserver setup make sure you have Docker open and then you can go into your command prompt and run the following: docker pull ghcr.io/jwyatt09/fetch:receipt_predictor
+Now with the Xserver setup make sure you have Docker open and then you can go into your command prompt and run the following: docker pull ghcr.io/jwyatt09/fetch:receipt_predictor2
 
 This will pull the docker image from GitHub
 
 Once this process is complete you can run the Docker container but first you will need to have your local IP address. You can find this by going to settings>Network & Internet>then selecting your Wi-Fi or Ethernet and scrolling down to properties where you can find your IPv4 address which should be a number listed in the format xxx.xxx.x.xxx
 
-Now to run the container go to your command prompt and run the following: docker run -it --rm -e DISPLAY=your_local_ip:0 -v /path/to/your/home/directory/.Xauthority:/root/.Xauthority --net=host ghcr.io/jwyatt09/fetch:receipt_predictor
+Now to run the container go to your command prompt and run the following: docker run -it --rm -e DISPLAY=your_local_ip:0 -v /path/to/your/home/directory/.Xauthority:/root/.Xauthority --net=host ghcr.io/jwyatt09/fetch:receipt_predictor2
   - Replace "/path/to/your/home/directory" with the actual path to your home directory.
   - Make sure to replace "your_local_ip" with your actual local IP address.
 
@@ -44,7 +44,7 @@ For Mac I used an Xserver called Xquartz which can be downloaded here https://ww
 
 Once you have this downloaded, you can launch Xquartz. It will bring up a terminal window but you can close out of this terminal window we do not need to do anything with it directly we just need to make sure Xquartz is running in the background.
 
-Now make sure you have Docker running then open up a terminal window and run the following: docker pull ghcr.io/jwyatt09/fetch:receipt_predictor
+Now make sure you have Docker running then open up a terminal window and run the following: docker pull ghcr.io/jwyatt09/fetch:receipt_predictor2
 
 This will pull the docker image from GitHub
 
@@ -54,7 +54,7 @@ On Mac you will need to add your IP address to the access control list. You can 
   - replace 'your_local_ip' with your actual local IP address
   - it will let you know that your IP address is being added to the access control list
 
-Now that your IP address has been added to the access control list you can run the docker image by entering the following into your terminal: docker run -e DISPLAY=your_local_ip:0 -v /tmp/.X11-unix:/tmp/.X11-unix ghcr.io/jwyatt09/fetch:receipt_predictor
+Now that your IP address has been added to the access control list you can run the docker image by entering the following into your terminal: docker run -e DISPLAY=your_local_ip:0 -v /tmp/.X11-unix:/tmp/.X11-unix ghcr.io/jwyatt09/fetch:receipt_predictor2
   - replace 'your_local_ip' with your actual local IP address
 
 This may take a moment but then the Fetch Receipt Predictor window will pop up.
