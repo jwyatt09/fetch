@@ -2,7 +2,7 @@
 fetch receipt predictor app
 
 Files included in this repository:
-  - Fetch(Lin_Reg).ipynb: this is the google colab notebook where I created the linear regression algorithm using Tensorflow which makes the predictions for the monthly receipt totals in 2022
+  - Fetch(lin_reg2).ipynb: this is the google colab notebook where I created the linear regression algorithm using Tensorflow which makes the predictions for the monthly receipt totals in 2022
   - app.py: This is the python file where I created the tkinter app to deploy the linear regression model
   - data_daily.csv: is the original csv data file for the project
   - docker image: is just a file that contains the docker pull command you can use to pull the image from GitHub
